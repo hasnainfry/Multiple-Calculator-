@@ -51,7 +51,7 @@ multi_calculator/
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/multi-calculator-cli.git
+git clone https://github.com/hasnainfry/multi-calculator-cli.git
 cd multi-calculator-cli
 
 
