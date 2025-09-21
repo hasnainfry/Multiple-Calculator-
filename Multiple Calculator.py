@@ -1,110 +1,233 @@
-
-
-
-print ("Multiple Calculator")
-
-
-
-while True:
-    print("1 simple Calculator ")
-    print("2 feet To Meter ")
-    print ("3 CM to Inch ")
-    print("4 GM/ KG/ Ton/ ")
-    print("5 KM To Mile ")
-    print ("6 Current Age ")
-    print ("7 Exit")
+def calculator (num1, symbol ,num2 ) : # Calculator Opretion 
+    
+    if symbol == "+" :
+        total = num1 + num2
+        return total
+    elif symbol == "-"  :
+        total = num1 - num2
+        return total
+        # (Multiply And Divide Opretion 
+    elif symbol  == "*" or symbol == "×" or symbol == "x" or symbol == "X": 
+        total = num1 * num2  
+        return total
+    elif symbol == "**" or symbol == "*2" or symbol == "×2" or symbol == "×²" or symbol == "x2" or symbol =="X2" :
+        total = num1 ** num2
+        return total
+    elif symbol  == "/" or symbol  == "÷" :
+        if num2 == 0 :
+            return "0 Error division Invalid "
+        else :
+            total = num1 / num2
+            return total 
+    elif symbol  == "//" or symbol  == "÷2" or symbol == "÷²" :
+        if num2 == 0 :
+            return "0 Error division Invalid "
+        else :
+            total = num1 // num2
+            return total 
+            
+    #----- Calculator Opretion Finish -----#
+           
+            
+            
+def feet_to_meter(size, convert) : # Feet 🔄 Meter 
+    
     try:
-         choice=int(input("What Do You Calculate? "))
-         
-         if choice==1 : # Simple Calculator Opretion
-             try:
-                  num1=int(input("enter Number"))
-                  symbol=input(" Select Opren  +  -  *  ÷  ")
-                  num2=int(input("enter Second number"))
-                  
-                  if symbol=="+":
-                      print (f"{num1+num2}")
-                  elif symbol =="-"  :
-                      print (f"{num1-num2}")
-                  elif symbol =="*" :
-                      print (f"{num1*num2}")
-                  elif symbol =="÷"   :
-                      if num1 != 0:
-                          print (f"{num1/num2}")
-                      else:
-                          print ("0÷anything is 0" )
-                  else: 
-                      print ("only below Symbol Opretion possible \n(- + ÷ *)") 
-             except ValueError :
-                 print ("Select Symbol Or Make Sure You Entered A digits")   
-                          
-         elif choice ==2: # Feet To Meter Opretion 
-             try:
-                 size=int(input("Enter Feet Or Meter You Want To Convert "))
-                 convert=int(input("1 Feet  2 Meter"))
-                 if convert==1:
-                     print (f" {size}Feet = {size/3.28084}Meter")
-                 elif convert ==2:
-                     print (f"{size}Meter = {size*3.28084}Feet")
-             except ValueError :
-                 print ("Enter Just Feet or meter Length Or Select Convert Option 1 or 2" )   
-                 
-         elif choice==3: # Centimeter to Inch Opretion 
-             try:
-                 mini_size=int(input("Enter Inch Or Centimeter"))
-                 inch_cm=int(input(f"{mini_size} Is 1 Inch 2 Centimeter ?"))
-                 if inch_cm ==1:
-                     print (f" {mini_size}Inch = {mini_size*2.54} Centimeters")
-                 elif inch_cm==2:
-                     print (f" {mini_size}Centimeter = {mini_size/2.54} Inch")
-             except ValueError :
-                 print ("uncomplete" )
-                 
-         elif choice ==4: # Grams To Tons  Opretion 
-             try:
-                 weight=int(input("Enter weight "))
-                 transform=int(input(f"Your Weight Is 1 GM 2 KG 3 TON \npick What is This"))
-                 if transform==1:
-                     print (f" {weight}GM = {weight/1000}KG \n {weight}GM = {weight/1000000}TON")
-                 elif transform ==2:
-                     print (f" {weight}KG = {weight/1000}TON \n {weight}KG = {weight*1000}GM") 
-                 elif transform ==3:
-                     print (f" {weight}TON = {weight*1000}KG \n {weight}TON = {weight*1000000}GM") 
-                 else:
-                     print ("Select Your Wait Is What? GM KG Or TON")   
-             except ValueError :
-                 print ("enter Just Weight Size Or Pick What Is This KG GM TON")
-                 
-         elif choice ==5: # Kilometers To Miles Opretion 
-             try:
-                 length=int(input("Enter Length You Want To Convert"))
-                 distance_convert=int(input("Your Distance Is 1 Meter 2 Kilometer 3 Mile "))
-                 if distance_convert==1:
-                     print (f" {length}Meter = {length/1000}KM \n {length}Meter = {length*0.000621371}Mile")
-                 elif distance_convert==2:
-                     print (f" {length}Kilometer = {length*1000}Meter \n {length}Kilometer = {length*0.621371}Mile")
-                 elif distance_convert==3:
-                     print (f" {length}Mile = {length/0.621371} Kilometer \n {length}Mile = {length/0.000621372}Meter")
-                 else:
-                     print ("Select Your Length Is What Meter Kilometer Or Mile")  
-             except ValueError :
-                 print ("Enter Only Length Don't Use KM Or Mile Or Make Sure You Choose Your Length what Is")     
-                 
-         elif choice==6: # age Opretion 
-             try:
-                 age=int(input("Enter Your Age Or Birth Year"))
-                 current_year=2025
-                 your_age=current_year-age
-                 print (f" your Old are{your_age}")
-             except ValueError :
-                 print ("Just Upload Age Or Birth Year") 
-         
-         elif choice==7:
-             print ("Thank You")
-             break        
-                           
+        size = float(size)
+    except ValueError  :
+        return "invalid Input Enter Size Value (int or Float)"
+        
+    if convert == 1:
+        total_size = size * 3.28084 
+        return total_size
+    elif convert == 2 :
+        total_size = size / 3.28083
+        return total_size
+    else :
+        return "Just Select (1,2)"     
+     
+    #--- Feet To Meter Finish Opretion ---# 
+    
+def inch_to_cm( size, convert) : # Inch To Centimeter 
+    
+    try:
+        size = float(size)
     except ValueError :
-        print ("just Choose A Number Do You Want")
+        return "Invalid input Enter Size Value (int or float)"
+        
+    if convert == 1 :
+        total_size = size * 2.54
+        return total_size
+    elif convert == 2 :
+        total_size = size / 2.54
+        return total_size
+    else :
+        return "Just Select (1,2)"      
+           
+    #--- Inch To CM Opretion Finish ---#        
+    
+def kg_to_pound(weight , convert ): # weight_mass KG To Pound
+    
+    try :
+        weight = float(weight) 
+    except ValueError :
+        return "invalid Input Enter Size Value (int or Float)"
+        
+    if convert == 1 :
+        total_weight = weight * 2.20462
+        return total_weight
+    elif convert == 2 :
+        total_weight = weight / 2.20462 
+        return total_weight 
+            
+    #--- KG To Pound Opretion Finish ---#
+     
+def km_to_mile (length , convert) : # Kilometers To Miles
+    
+    try :
+        length = float(length)
+    except ValueError :
+        return   "invalid Input Enter Size Value (int or Float)"
+        
+    if convert == 1 :
+        total_length = length / 0.621371
+        return total_length
+    elif convert == 2 :
+        total_length = length * 0.621371  
+        return total_length 
+        
+    #--- KM To Mile Opretion Finish ---#   
+            
+def age_birth(age, current_year) : # Age 
+    
+    your_age = current_year - age
+    return your_age
+    
+    #--- Age Opretion Finish ---#   
+        
+    
+    
+# -----Main-----#       
+def main() :
+    print ("Welcome To Multi Calculator")
+    while True :
+        
+        # Choose What Do You Want
+        print ("1 Calculator")
+        print ("2 Feet To Meter Calculator ")
+        print ("3 Centimeter To Inch")
+        print ("4 KG To Pound")
+        print ("5 Kilometer To Mile")
+        print ("6 Age Calculator")
+        print ("7 Exit program")
+        
+        
+        try:
+            choice = int(input("Enter Choice "))
+            
+            
+            if choice == 1 : # Calculator Inputs / Output 
+                try:
+                    number1 = int(input("Enter Number "))
+                    select_symbol = input("Select Symbol (-+÷§) : ")
+                    number2 = int(input("Enter Second Number "))
+                    result = calculator(number1 , select_symbol , number2)
+                    print (f"{number1} {select_symbol } = {result}")
+                    
+                except ValueError :
+                    print ("Make Sure Numbers in digits Or Valid Opretion Symbol") 
+                    #---Calculator Finished ---#
+                    
+                
+            elif choice == 2 : # Feet Meter Input / Output 
+                try:
+                    any_size = input("Enter Size ")
+                    converter = int(input("1 Meter To Feet : 2 Feet To Meter : "))
+                    result = feet_to_meter(any_size , converter)
+                    
+                    if converter == 1 :
+                        print (f"{any_size} Meter = {result} Feet")
+                    else:
+                        print (f"{any_size} Feet = {result} Meter")
+                        
+                except ValueError :
+                    print ("Make Sure Size In Digits Or Meter To feet In Just Select (1 or 2)")
+                    #---Feet To Meter Fisnished ---#
+                
+                
+            elif choice == 3 : # Centimeters To Inch Input/Output 
+                try:
+                    mini_size = input("Enter Size You Want Convert inch cm ")
+                    converter  = int(input("1 inch to centimeter : 2 Centimeter to Inch : "))
+                    result = inch_to_cm(mini_size, converter)
+                    
+                    if converter == 1 :
+                        print (f"{mini_size} Inch = {result} Centimeter")
+                    else :
+                        print (f"{mini_size} Centimeter = {result} Inch")
+                             
+                except ValueError :
+                    print ("Make Sure Enter Size in Digits Or just Select (1, 2)")
+                     #---Inch To CM Finished ---#
+                           
+            elif choice == 4 : # KG To Pound Input/Output 
+                try :
+                    weight_value = input("Enter Weight/Mass ")
+                    weight_converter = int(input("(1 KG To Pound) (2 Pound To KG) "))
+                    result = kg_to_pound(weight_value , weight_converter)
+                    
+                    if weight_converter == 1 :
+                        print (f"{weight_value} Kg = {result} Pound")
+                    elif weight_converter == 2 :
+                        print (f"{weight_value} Pound = {result} KG")
+                    
+                except ValueError  :
+                    print ("Make Sure Enter Weight In Digits") 
+                    #--- KG To Pound Finished ---#    
+                    
+            elif choice == 5 : # KM To Mile Input/Output 
+                try :
+                    area_length = input("Enter Length ") 
+                    converter  = int(input("(1 KM To Mile) (2 Mile To KM) "))
+                    result = km_to_mile(area_length , converter)
+                    
+                    if converter == 1 :
+                        print (f"{area_length} KM = {result} Mile ")
+                    elif converter == 2 :
+                        print (f"{area_length} Mile = {result} KM")
+                        
+                except ValueError :
+                    print ("Make Sure Enter Length In Digits") 
+                    #--- KM To Mile Finished ---#
+            
+            elif choice == 6 : # Agr Birth Input/Output 
+                try:
+                    birth_or_age = int(input("Enter Your Or Birth Year "))
+                    now_year = 2025
+                    result = age_birth(birth_or_age , now_year)
+                    print (f"You Old Are {result}")
+                
+                except ValueError :
+                    print ("Make Sure Enter Age In Digits")
+                    #--- Age Finished ---#
+                    
+                                 
+                        
+                    
+           elif choice == 7 :
+                print ("Thank You")
+                break  
+                
+                
+                    
+                
+        except ValueError  :
+            print ("Invalid Choice ")
+            
+
+main()
+
+    
         
         
         
